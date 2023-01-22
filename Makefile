@@ -3,6 +3,7 @@ NAME = push_swap
 SRCS = list.c\
 		action.c\
 		utils.c\
+		utils_1.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -46,22 +46,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
-
-
-// int main(int ac, char **av)
-// {
-// 	(void)ac;
-
-// 	t_list *head = ft_lstnew(atoi(av[1]));
-
-// 	ft_lstadd_back(&head,ft_lstnew(atoi(av[2])));
-
-// 			while(head !=NULL)
-// 			{
-
-// 				printf("%d\n",head->content);
-// 				head = head->next;
-
-// 			}
-
-// }
