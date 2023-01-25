@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+size_t ft_strlen(const char *s)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (s[i])
@@ -10,11 +10,11 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int	ft_atoi(const char *str)
+long long ft_atoi(const char *str)
 {
-	int		i;
-	int		n;
-	long	result;
+	int i;
+	int n;
+	size_t result;
 
 	i = 0;
 	n = 1;
@@ -27,16 +27,21 @@ int	ft_atoi(const char *str)
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + str[i] - 48;
+		if ((result > 2147483647ull && n ==1 ) || (result > 2147483648ull && n == -1))
+		{
+
+			return (INT_MAX + 1ull);
+		}
 		i++;
 	}
 	return ((result * n));
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int		len;
-	int		i;
-	char	*p;
+	int len;
+	int i;
+	char *p;
 
 	i = 0;
 	if (!s1 || !s2)
@@ -53,11 +58,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (p);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned int	l_len;
-	char			*p;
+	size_t i;
+	unsigned int l_len;
+	char *p;
 
 	if (!s)
 		return (NULL);
@@ -78,4 +83,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	p[i] = '\0';
 	return (p);
+}
+
+int ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

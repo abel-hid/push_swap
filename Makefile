@@ -4,6 +4,7 @@ SRCS = list.c\
 		action.c\
 		utils.c\
 		utils_1.c\
+		error.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -3,8 +3,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
-
+#include <limits.h>
+#include <ctype.h>
 typedef struct s_list
 {
 	int			content;
@@ -19,11 +21,14 @@ int 	main(int ac, char **av);
 char	**ft_addargs(char *av[]);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
-void 	ft_noting(t_list **stack_a, char *av[]);
+int 	ft_noting(t_list **stack_a, char *av[]);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *s);
-int		ft_atoi(const char *str);
+long long		ft_atoi(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+int		is_not_num(char **str);
+int		ft_isdigit(int c);
+int 	ft_is_double(char **str);
+int 	ft_is_overflow(char **str);
 
 #endif

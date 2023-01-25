@@ -1,0 +1,80 @@
+#include "push_swap.h"
+
+int ft_error(void)
+{
+	write(1, "Error\n",6);
+	return (0);
+}
+
+int ft_is_overflow(char **str)
+{
+	int  i;
+	i = 1;
+
+	while(str[i])
+	{
+		if((ft_atoi(str[i]) >  INT_MAX))
+			return(1);
+		i++;
+	}
+	return(0);
+}
+
+int is_not_num(char **str)
+{
+	int i = 1;
+	int j;
+
+
+    while (str[i])
+	{
+		j = 0;
+		if (str[i][j] == '-')
+			j++;
+		while (str[i][j])
+		{
+			if (!(ft_isdigit(str[i][j])))
+				return (1);
+			j++;
+		}
+       i++;
+    }
+    return 0;
+}
+
+int ft_is_double(char **str)
+{
+	int i;
+	int j;
+	i = 0;
+	while(str[i] != '\0')
+	{
+		j = i + 1;
+		while(str[j] != '\0')
+		{
+			if(ft_atoi(str[i]) == ft_atoi(str[j]))
+				return(1);
+			j++;
+		}
+		i++;
+	}
+	return 0;
+}
+
+int ft_noting(t_list **stack_a, char *av[])
+{
+	int i = 1;
+
+	if(is_not_num(av))
+		return(ft_error());
+	if(ft_is_double(av))
+		return(ft_error());
+	if(ft_is_overflow(av))
+		return(ft_error());
+	while(av[i] != '\0' )
+	{
+		ft_lstadd_back(stack_a,ft_lstnew(ft_atoi(av[i])));
+		i++;
+	}
+	return (0);
+}

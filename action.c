@@ -1,13 +1,26 @@
 #include "push_swap.h"
 
 
+void swap_a(t_list **stack_a)
+{
+    if (*stack_a != NULL && (*stack_a)->next != NULL)
+	 {
+       t_list *temp = (*stack_a)->next;
+        (*stack_a)->next = temp->next;
+        temp->next = *stack_a;
+        *stack_a = temp;
+    }
+	write(1, "sa\n", 3);
+}
+
+
 char **ft_addargs(char *av[])
 {
 	char	*str;
 	char	**p;
 	int		i;
 
-	i = 0;
+	i = 1;
 	str = ft_strdup(" ");
 	while (av[i])
 	{
@@ -18,26 +31,22 @@ char **ft_addargs(char *av[])
 	return(p);
 }
 
-void ft_noting(t_list **stack_a, char *av[])
-{
-	char **p;
-	int i = 1;
-	p = ft_addargs(av);
 
-	while(p[i] != '\0')
-	{
-		ft_lstadd_back(stack_a,ft_lstnew(ft_atoi(p[i++])));
-	}
-}
 
 int main(int ac, char **av)
 {
 	(void)ac;
 
 	t_list *stack_a;
+	t_list *stack_b;
 	stack_a = NULL;
+	stack_b = NULL;
+
 
 	ft_noting(&stack_a,av);
+
+	// swap_a(&stack_a);
+
 
 	while(stack_a)
 	{
