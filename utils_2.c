@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 21:25:55 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/01/25 21:25:57 by abel-hid         ###   ########.fr       */
+/*   Created: 2023/01/25 21:27:22 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/01/25 21:27:24 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void  push_swap(t_list *stack_a, t_list *stcak_b)
+char **ft_addargs(char *av[])
 {
-	if(ft_lstsize(stack_a) == 2)
-	
-	return;
+	char	*str;
+	char	**p;
+	int		i;
+
+	i = 1;
+	str = ft_strdup(" ");
+	while (av[i])
+	{
+		str = ft_strjoin(str, " ");
+		str = ft_strjoin(str, av[i++]);
+	}
+	p = ft_split(str, ' ');
+	return(p);
 }

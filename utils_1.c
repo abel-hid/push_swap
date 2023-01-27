@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/25 21:26:31 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/01/25 21:26:33 by abel-hid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 size_t ft_strlen(const char *s)
@@ -19,6 +31,9 @@ long long ft_atoi(const char *str)
 	i = 0;
 	n = 1;
 	result = 0;
+	if (!str)
+		return (INT_MAX + 1ull);
+
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -29,7 +44,6 @@ long long ft_atoi(const char *str)
 		result = (result * 10) + str[i] - 48;
 		if ((result > 2147483647ull && n ==1 ) || (result > 2147483648ull && n == -1))
 		{
-
 			return (INT_MAX + 1ull);
 		}
 		i++;

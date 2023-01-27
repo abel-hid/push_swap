@@ -1,7 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/25 21:25:43 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/01/25 21:25:46 by abel-hid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 
 int main(int ac, char **av)
 {
+	(void)ac;
 
+	t_list *stack_a;
+	t_list *stack_b;
+	stack_a = NULL;
+	stack_b = NULL;
+
+
+	ft_noting(&stack_a,av);
+
+	if(ft_lstsize(stack_a) == 2)
+		ft_sort_2num(&stack_a);
+
+	if(ft_lstsize(stack_a) == 3)
+		ft_sort_3num(&stack_a);
+
+	while(stack_a)
+	{
+		printf("%d\n", stack_a->content);
+		stack_a = stack_a->next;
+	}
 }
