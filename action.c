@@ -40,18 +40,12 @@ void swap_b(t_list **stack_b)
 
 void swap_rra(t_list **stack_a)
 {
-	t_list *p;
 
 	ft_lstadd_front(stack_a,ft_lstnew(ft_lstlast(*stack_a)->content));
-	p = (*stack_a);
-	delete_last_node(&p);
+	delete_last_node(stack_a);
 
 	write(1, "rra\n", 4);
 }
-
-
-
-
 
 
 void swap_ra(t_list **stack_a)
