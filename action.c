@@ -37,20 +37,23 @@ void swap_b(t_list **stack_b)
 }
 
 
-
 void swap_rra(t_list **stack_a)
 {
 
 	ft_lstadd_front(stack_a,ft_lstnew(ft_lstlast(*stack_a)->content));
 	delete_last_node(stack_a);
-
 	write(1, "rra\n", 4);
 }
+void swap_rrb(t_list **stack_b)
+{
 
+	ft_lstadd_front(stack_b,ft_lstnew(ft_lstlast(*stack_b)->content));
+	delete_last_node(stack_b);
+	write(1, "rrb\n", 4);
+}
 
 void swap_ra(t_list **stack_a)
 {
-
 	ft_lstadd_back(stack_a,ft_lstnew((*stack_a)->content));
 	(*stack_a) = (*stack_a)->next;
 	write(1, "ra\n", 3);
@@ -64,4 +67,17 @@ void swap_rb(t_list **stack_b)
 	write(1, "rb\n", 3);
 }
 
+void ft_push_b(t_list **stack_a,t_list **stack_b)
+{
+	ft_lstadd_front(stack_b,ft_lstnew((*stack_a)->content));
+		delete_first_node(stack_a);
 
+		write(1, "pb\n", 3);
+}
+
+void ft_push_a(t_list **stack_a,t_list **stack_b)
+{
+	ft_lstadd_front(stack_a,ft_lstnew((*stack_b)->content));
+		delete_first_node(stack_b);
+		write(1, "pa\n", 3);
+}

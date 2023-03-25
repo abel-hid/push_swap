@@ -68,18 +68,27 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 void delete_last_node(t_list **stack_a)
 {
-    t_list	*current = *stack_a;
-    t_list	*tmp = NULL;
+	t_list	*current = *stack_a;
+	
+	t_list	*tmp = NULL;
 
-    if (*stack_a == NULL)
-        return;
+	if (*stack_a == NULL)
+	 return;
 
-    while (current->next != NULL)
+	 while (current->next != NULL)
 	 {
-        tmp = current;
-        current = current->next;
-    }
+		tmp = current;
+		current = current->next;
+	}
 
-    tmp->next = NULL;
-    free(current);
+	tmp->next = NULL;
+	free(current);
 }
+
+void delete_first_node(t_list **stack_a)
+{
+	t_list* tmp = *stack_a;
+	*stack_a = tmp->next;
+	free(tmp);
+}
+

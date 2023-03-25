@@ -20,8 +20,9 @@ SRCS = list.c\
 		utils_2.c\
 		ft_sort_2num.c\
 		ft_sort_3num.c\
+		ft_sort_4num.c\
 		main.c\
-		
+
 
 
 

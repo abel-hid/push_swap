@@ -31,9 +31,25 @@ int main(int ac, char **av)
 	if(ft_lstsize(stack_a) == 3)
 		ft_sort_3num(&stack_a);
 
+		if(ft_lstsize(stack_a)  >= 5)
+			ft_sort_4num(&stack_a,&stack_b);
+
+
+	printf("a\n");
+	printf("\n");
 	while(stack_a)
 	{
+
 		printf("%d\n", stack_a->content);
 		stack_a = stack_a->next;
+
+	}
+	printf("\n");
+	printf("b\n");
+	printf("\n");
+	while(stack_b)
+	{
+		printf("%d\n", stack_b->content);
+		stack_b = stack_b->next;
 	}
 }
