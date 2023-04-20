@@ -22,6 +22,7 @@ SRCS = list.c\
 		ft_sort_3num.c\
 		ft_sort_4num.c\
 		main.c\
+		sort_100.c\
 
 
 

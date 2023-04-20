@@ -21,10 +21,10 @@ void ft_ft(t_list **stack_a)
 		&& (*stack_a)->next->content < (*stack_a)->next->next->content
 		 && (*stack_a)->content <  (*stack_a)->next->next->content)
 		{
-			swap_a(stack_a);
+			sa(stack_a);
 			return ;
 		}
-		swap_ra(stack_a);
+		ra(stack_a);
 		return ;
 	}
 }
@@ -34,11 +34,11 @@ void ft(t_list **stack_a)
 	if ((*stack_a)->content < (*stack_a)->next->content
 	&& (*stack_a)->next->content > (*stack_a)->next->next->content)
 	{
-		swap_rra(stack_a);
+		rra(stack_a);
 		if (((*stack_a)->content > (*stack_a)->next->content)
 		&& (*stack_a)->next->content < (*stack_a)->next->next->content)
 		{
-			swap_a(stack_a);
+			sa(stack_a);
 		}
 	}
 }
@@ -51,8 +51,8 @@ void ft_sort_3num(t_list **stack_a)
 	if (((*stack_a)->content > (*stack_a)->next->content)
 	&& (*stack_a)->next->content > (*stack_a)->next->next->content)
 	{
-		swap_a(stack_a);
-		swap_rra(stack_a);
+		sa(stack_a);
+		rra(stack_a);
 	}
 }
 

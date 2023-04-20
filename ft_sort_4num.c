@@ -14,18 +14,37 @@
 
 int	ft_get_max(t_list **stcak_a)
 {
-	int max = (*stcak_a)->content;
+	t_list *tmp;
+	tmp = *stcak_a;
+	int max = tmp->content;
 
-	while (*stcak_a != NULL)
+	while (tmp != NULL)
 	{
-		if ((*stcak_a)->content > max)
+		if (tmp->content > max)
 		{
-			max = (*stcak_a)->content;
+			max = tmp->content;
 		}
-		(*stcak_a) = (*stcak_a)->next;
+		tmp = tmp->next;
 	}
-	// printf("max == %d", max);
 	return (max);
+}
+
+int	ft_get_min(t_list **stack_a)
+{
+	t_list *tmp;
+	tmp = *stack_a;
+	int min = tmp->content;
+
+	while (tmp )
+	{
+		if (tmp->content < min && tmp->pos == -1)
+		{
+			min = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+
+	return (min);
 }
 
 int ft_is_sorted(t_list **stack_a)
@@ -45,71 +64,103 @@ int ft_is_sorted(t_list **stack_a)
 	return (1);
 }
 
-void ft_fuction(t_list **stack_a)
+void check_min(t_list **stack_a)
 {
-	int tmp;
-	int i =0 ;
-	t_list *stack;
-
-	while (i < ft_lstsize(*stack_a))
-	{
-		stack = *stack_a;
-		while (stack->next != NULL)
+	int min;
+	int i = 1;
+	min = ft_get_min(stack_a);
+		while((*stack_a)->content != min )
 		{
-			if (stack->content < stack->next->content)
+			i++;
+			if(i <= 2)
 			{
-				tmp = stack->content;
-				stack->content = stack->next->content;
-				stack->next->content = tmp;
+				sa(stack_a);
 			}
-			stack = stack->next;
+			else
+				rra(stack_a);
 		}
-		i++;
-    }
+
 }
 
 void ft_sort_4num(t_list **stack_a, t_list **stack_b)
 {
-	ft_fuction(stack_a);
-	ft_push_b(stack_a,stack_b);
-	ft_push_b(stack_a,stack_b);
-	// ft_sort_3num(stack_a);
-	ft_sort_list(stack_a);
-	ft_push_a(stack_a,stack_b);
-	swap_ra(stack_a);
-	ft_push_a(stack_a,stack_b);
-	swap_ra(stack_a);
-}
+	int min;
+	int i = 1;
 
-void ft_swap(t_list *node1, t_list *node2)
-{
-    int temp = node1->content;
-    node1->content = node2->content;
-    node2->content = temp;
-}
-
-void ft_sort_list(t_list **stack_a)
-{
-    t_list *cur = *stack_a;
-    while (cur != NULL)
+	min = ft_get_min(stack_a);
+	if(!ft_is_sorted(stack_a))
 	{
-        t_list *min_node = cur;
-        t_list *next = cur->next;
-        while (next != NULL)
+	while((*stack_a)->content != min )
+	{
+		i++;
+		if(i <= 2)
 		{
-            if (next->content < min_node->content) {
-                min_node = next;
-            }
-            next = next->next;
-        }
-        if (min_node != cur)
+			ra(stack_a);
+		}
+		else
+			rra(stack_a);
+	}
+		ft_push_b(stack_a,stack_b);
+		ft_sort_3num(stack_a);
+		ft_push_a(stack_a,stack_b);
+	}
+}
+
+void ft_sort_5num(t_list **stack_a, t_list **stack_b)
+{
+	int min;
+	int i = 1;
+	min = ft_get_min(stack_a);
+	if(!ft_is_sorted(stack_a))
+	{
+		while((*stack_a)->content != min )
 		{
-            ft_swap(cur, min_node);
-        }
-        cur = cur->next;
-    }
+			i++;
+			if(i <= 2)
+			{
+				sa(stack_a);
+			}
+			else
+				rra(stack_a);
+		}
+			ft_push_b(stack_a,stack_b);
+			check_min(stack_a);
+			ft_push_b(stack_a,stack_b);
+			ft_sort_3num(stack_a);
+			ft_push_a(stack_a,stack_b);
+			ft_push_a(stack_a,stack_b);
+	}
 }
 
 
 
 
+
+
+
+
+// void sort_all_num(t_list **stack_a, t_list **stack_b)
+// {
+// 	(void)stack_b;
+//     static int new_pos = 0;
+//     int min;
+
+//     t_list *current = *stack_a; // create a copy of stack_a to avoid modifying the original list
+
+//     while (current)
+//     {
+//         if (current->pos == -1)
+//         {
+//             min = ft_get_min(&current);
+//             printf("[minimum %d]\n", min);
+
+//             if (current->content == min)
+//             {
+//                 printf("[index %d]\n", current->pos);
+//                 printf("[position %d]\n", new_pos);
+//                 current->pos = new_pos++;
+//             }
+//         }
+//         current = current->next;
+//     }
+// }

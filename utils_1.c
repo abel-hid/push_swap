@@ -26,25 +26,30 @@ long long ft_atoi(const char *str)
 {
 	int i;
 	int n;
-	size_t result;
+	long long result;
 
 	i = 0;
 	n = 1;
 	result = 0;
 	if (!str)
-		return (INT_MAX + 1ull);
+		return (2147483648);
 
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
+	while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
 			n = -1;
+		if((str[i] == '-' && str[i + 1] == '-') || (str[i] == '+' && str[i + 1] == '+'))
+			ft_error();
+		i++;
+	}
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + str[i] - 48;
-		if ((result > 2147483647ull && n ==1 ) || (result > 2147483648ull && n == -1))
+		if ((result > 2147483647 && n == 1 ) || (result > 2147483648 && n == -1))
 		{
-			return (INT_MAX + 1ull);
+			return (2147483648);
 		}
 		i++;
 	}

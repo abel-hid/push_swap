@@ -22,6 +22,7 @@
 typedef struct s_list
 {
 	int			content;
+	int			pos;
 	struct s_list	*next;
 }					t_list;
 
@@ -37,6 +38,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		**ft_split(char const *s, char c);
 int 		ft_noting(t_list **stack_a, char *av[]);
 char		*ft_strdup(const char *s1);
+int			ft_strcmp(const char *s1, const char *s2);
 size_t		ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
@@ -45,14 +47,20 @@ int			ft_isdigit(int c);
 int 		ft_is_double(char **str);
 int 		ft_is_overflow(char **str);
 void 		ft_sort_2num(t_list **stack_a);
-void 		swap_a(t_list **stack_a);
+void 		sa(t_list **stack_a);
 void 		ft_sort_3num(t_list **stack_a);
-void		swap_ra(t_list **stack_a);
-void 		swap_rra(t_list **stack_a);
+void		ra(t_list **stack_a);
+void rb(t_list **stack_b);
+void 		rra(t_list **stack_a);
+void rrb(t_list **stack_b);
 void		 ft_push_b(t_list **stack_a,t_list **stack_b);
 void 		ft_push_a(t_list **stack_a,t_list **stack_b);
 void 		delete_first_node(t_list **stack_a);
 void 		ft_sort_4num(t_list **stack_a, t_list **stack_b);
-void		ft_sort_list(t_list **stack_a);
+void ft_sort_5num(t_list **stack_a, t_list **stack_b);
+void sort_all_num(t_list **stack_a, t_list **stack_b);
+int ft_error(void);
+int	ft_isdigit(int c);
+int	ft_get_min(t_list **stack_a);
 
 #endif

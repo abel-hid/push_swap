@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (!p)
 		return (NULL);
 	p->content = content;
+	p->pos = -1;
 	p->next = NULL;
 	return (p);
 }
@@ -69,7 +70,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 void delete_last_node(t_list **stack_a)
 {
 	t_list	*current = *stack_a;
-	
+
 	t_list	*tmp = NULL;
 
 	if (*stack_a == NULL)

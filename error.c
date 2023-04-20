@@ -15,17 +15,19 @@
 int ft_error(void)
 {
 	write(1, "Error\n",6);
-	return (0);
+	exit(1);
+	return(0);
 }
 
 int ft_is_overflow(char **str)
 {
 	int  i;
-	i = 1;
+	i = 0;
+
 
 	while(str[i])
 	{
-		if((ft_atoi(str[i]) >  INT_MAX))
+		if(ft_atoi(str[i]) >=  2147483648)
 			return(1);
 		i++;
 	}
@@ -34,7 +36,7 @@ int ft_is_overflow(char **str)
 
 int is_not_num(char **str)
 {
-	int i = 1;
+	int i = 0;
 	int j;
 
 
@@ -58,7 +60,7 @@ int ft_is_double(char **str)
 {
 	int i;
 	int j;
-	i = 1;
+	i = 0;
 	while(str[i] != '\0')
 	{
 		j = i + 1;
@@ -75,25 +77,16 @@ int ft_is_double(char **str)
 
 int ft_noting(t_list **stack_a, char *av[])
 {
-	int i = 1;
+	int i = 0;
+
+	av = ft_addargs(av);
 
 	if(is_not_num(av))
-	{
-		// printf("1");
 		return(ft_error());
-	}
 	if(ft_is_double(av))
-	{
-		// printf("2");
 		return(ft_error());
-	}
-
 	if(ft_is_overflow(av))
-	{
-		// printf("3");
 		return(ft_error());
-	}
-
 	while(av[i] != '\0' )
 	{
 		ft_lstadd_back(stack_a,ft_lstnew(ft_atoi(av[i])));
