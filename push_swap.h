@@ -22,7 +22,7 @@
 typedef struct s_list
 {
 	int			content;
-	int			pos;
+	int			index;
 	struct s_list	*next;
 }					t_list;
 
@@ -53,8 +53,8 @@ void		ra(t_list **stack_a);
 void rb(t_list **stack_b);
 void 		rra(t_list **stack_a);
 void rrb(t_list **stack_b);
-void		 ft_push_b(t_list **stack_a,t_list **stack_b);
-void 		ft_push_a(t_list **stack_a,t_list **stack_b);
+void pb(t_list **stack_a,t_list **stack_b);
+void pa(t_list **stack_a,t_list **stack_b);
 void 		delete_first_node(t_list **stack_a);
 void 		ft_sort_4num(t_list **stack_a, t_list **stack_b);
 void ft_sort_5num(t_list **stack_a, t_list **stack_b);
@@ -62,5 +62,6 @@ void sort_all_num(t_list **stack_a, t_list **stack_b);
 int ft_error(void);
 int	ft_isdigit(int c);
 int	ft_get_min(t_list **stack_a);
+void get_index(t_list *stack_a);
 
 #endif

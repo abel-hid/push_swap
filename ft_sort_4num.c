@@ -37,7 +37,7 @@ int	ft_get_min(t_list **stack_a)
 
 	while (tmp )
 	{
-		if (tmp->content < min && tmp->pos == -1)
+		if (tmp->content < min && tmp->index == -1)
 		{
 			min = tmp->content;
 		}
@@ -100,9 +100,9 @@ void ft_sort_4num(t_list **stack_a, t_list **stack_b)
 		else
 			rra(stack_a);
 	}
-		ft_push_b(stack_a,stack_b);
+		pb(stack_a,stack_b);
 		ft_sort_3num(stack_a);
-		ft_push_a(stack_a,stack_b);
+		pa(stack_a,stack_b);
 	}
 }
 
@@ -123,12 +123,12 @@ void ft_sort_5num(t_list **stack_a, t_list **stack_b)
 			else
 				rra(stack_a);
 		}
-			ft_push_b(stack_a,stack_b);
+			pb(stack_a,stack_b);
 			check_min(stack_a);
-			ft_push_b(stack_a,stack_b);
+			pb(stack_a,stack_b);
 			ft_sort_3num(stack_a);
-			ft_push_a(stack_a,stack_b);
-			ft_push_a(stack_a,stack_b);
+			pa(stack_a,stack_b);
+			pa(stack_a,stack_b);
 	}
 }
 

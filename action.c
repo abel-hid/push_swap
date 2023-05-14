@@ -40,43 +40,102 @@ void swap_b(t_list **stack_b)
 void rra(t_list **stack_a)
 {
 
-	ft_lstadd_front(stack_a,ft_lstnew(ft_lstlast(*stack_a)->content));
-	delete_last_node(stack_a);
+	t_list *tmp;
+	t_list *befor;
+
+	if(stack_a && (*stack_a))
+	{
+		tmp = *stack_a;
+		befor = NULL;
+		while(tmp->next != NULL)
+		{
+			befor = tmp;
+			tmp = tmp->next;
+		}
+		befor->next = NULL;
+		tmp->next = *stack_a;
+		(*stack_a) = tmp;
+	}
 	write(1, "rra\n", 4);
 }
 void rrb(t_list **stack_b)
 {
-	ft_lstadd_front(stack_b,ft_lstnew(ft_lstlast(*stack_b)->content));
-	delete_last_node(stack_b);
+	t_list *tmp;
+	t_list *befor;
+	if(stack_b&& (*stack_b))
+	{
+		tmp = *stack_b;
+		befor = NULL;
+		while(tmp->next != NULL)
+		{
+			befor = tmp;
+			tmp = tmp->next;
+		}
+		befor->next = NULL;
+		tmp->next = *stack_b;
+		(*stack_b) = tmp;
+	}
 	write(1, "rrb\n", 4);
 }
 
 void ra(t_list **stack_a)
 {
-	ft_lstadd_back(stack_a,ft_lstnew((*stack_a)->content));
-	(*stack_a) = (*stack_a)->next;
+	t_list *tmp;
+
+	if(stack_a && (*stack_a))
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		tmp->next = NULL;
+		ft_lstadd_back(stack_a,tmp);
+	}
+
 	write(1, "ra\n", 3);
 }
 
 void rb(t_list **stack_b)
 {
 
-	ft_lstadd_back(stack_b,ft_lstnew((*stack_b)->content));
-	(*stack_b) = (*stack_b)->next;
+	t_list *tmp;
+
+	if(stack_b && (*stack_b))
+	{
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = NULL;
+		ft_lstadd_back(stack_b,tmp);
+	}
 	write(1, "rb\n", 3);
 }
 
-void ft_push_b(t_list **stack_a,t_list **stack_b)
+void pb(t_list **stack_a,t_list **stack_b)
 {
-	ft_lstadd_front(stack_b,ft_lstnew((*stack_a)->content));
-		delete_first_node(stack_a);
+	t_list *tmp;
 
-		write(1, "pb\n", 3);
+	if(stack_a && (*stack_a))
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		tmp->next = (*stack_b);
+		 (*stack_b) = tmp;
+
+
+	}
+	write(1, "pb\n", 3);
 }
 
-void ft_push_a(t_list **stack_a,t_list **stack_b)
+void pa(t_list **stack_a,t_list **stack_b)
 {
-	ft_lstadd_front(stack_a,ft_lstnew((*stack_b)->content));
-		delete_first_node(stack_b);
+	t_list *tmp;
+
+	if(stack_b && (*stack_b))
+	{
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = (*stack_a);
+		 (*stack_a) = tmp;
+
+
+	}
 		write(1, "pa\n", 3);
 }
