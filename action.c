@@ -20,7 +20,7 @@ void sa(t_list **stack_a)
  		(*stack_a)->next = temp->next;
 		temp->next = *stack_a;
 		*stack_a = temp;
-    }
+	}
 	write(1, "sa\n", 3);
 }
 

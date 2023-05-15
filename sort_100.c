@@ -1,6 +1,22 @@
 #include "push_swap.h"
- int	ft_get_max(t_list **stcak_a);
-void reset_all(t_list **stack_a);
+
+int	ft_get_min(t_list **stack_a)
+{
+	t_list *tmp;
+	tmp = *stack_a;
+	int min = tmp->content;
+
+	while (tmp )
+	{
+		if (tmp->content < min && tmp->index == -1)
+		{
+			min = tmp->content;
+		}
+		tmp = tmp->next;
+	}
+
+	return (min);
+}
 
 void reset_all(t_list **stack_a)
 {
@@ -21,9 +37,9 @@ void get_index(t_list *stack_a)
 	int min;
 	t_list *tmp ;
 
-	reset_all(&stack_a);
 
 	tmp = stack_a;
+	reset_all(&stack_a);
 	while (stack_a)
 	{
 		min  = ft_get_min(&tmp);
@@ -44,21 +60,23 @@ void function(t_list **stack_a, t_list **stack_b)
 {
 
 	int chunk;
+	int chunk_size;
 	int j;
 	int a;
 
+	if(ft_lstsize(*stack_a) == 500)
+		chunk_size = 9;
+	else
+		chunk_size = 5;
 
-	chunk = ft_lstsize(*stack_a) / 5;
+	chunk = ft_lstsize(*stack_a) / chunk_size;
 	a = chunk;
 	j = 0;
-		// printf("indexes :%d\n", (*stack_a)->index);
 	while(*stack_a)
 	{
 
 		if((*stack_a)->index <=  a)
 		{
-
-		// printf("indexes :%d\n", (*stack_a)->index);
 			pb(stack_a,stack_b);
 				j++;
 			if((*stack_b)->index  > (a - (chunk / 2)))
@@ -69,12 +87,6 @@ void function(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a);
 	}
-	// 	while (*stack_b)
-	// {
-	// 	printf("indexes :%d\n", (*stack_b)->index);
-	// 	(*stack_b) = (*stack_b)->next;
-	// }
-
 }
 
 int position(t_list *stack_b , int index)
@@ -110,7 +122,6 @@ int get_num_action(t_list *stack_b, int pos)
 void sort_all_num(t_list **stack_a, t_list **stack_b)
 {
 	function(stack_a,stack_b);
-
 	int max;
 	int befor_max;
 	int max_instruction;
@@ -122,54 +133,36 @@ void sort_all_num(t_list **stack_a, t_list **stack_b)
 		befor_max = position(*stack_b,ft_lstsize(*stack_b) - 1);
 		max_instruction = get_num_action(*stack_b, max);
 		b = get_num_action(*stack_b, befor_max);
-
-
 		if(max_instruction > b)
 		{
-			if(befor_max <= ft_lstsize(*stack_b) / 2)
-			{
-				while(b--)
-				rb(stack_b);
-			}
-			else
-			{
-				while(b--)
-				 rrb(stack_b);
-			}
+			helper(b, befor_max,stack_b);
 			pa(stack_a,stack_b);
 			get_index(*stack_b);
-
 			max_instruction = get_num_action(*stack_b,position(*stack_b,ft_lstsize(*stack_b)));
 			max = position(*stack_b,ft_lstsize(*stack_b));
-
-
-			if(max <= ft_lstsize(*stack_b) / 2)
-			{
-				while(max_instruction--)
-				rb(stack_b);
-			}
-			else
-			{
-				while(max_instruction--)
-				rrb(stack_b);
-			}
+			helper(max_instruction, max,stack_b);
 			pa(stack_a,stack_b);
 			sa(stack_a);
 		}
 		else
 		{
-		if (max <= ft_lstsize(*stack_b) / 2)
+			helper(max_instruction, max,stack_b);
+			pa(stack_a,stack_b);
+		}
+	}
+}
+
+void helper(int instruction,int position, t_list **stack_b)
+{
+		if (position <= ft_lstsize(*stack_b) / 2)
 			{
-				while(max_instruction--)
+				while(instruction--)
 				rb(stack_b);
 			}
 			else
 			{
-				while(max_instruction--)
+				while(instruction--)
 				rrb(stack_b);
 			}
-			pa(stack_a,stack_b);
-		}
-	}
 }
 

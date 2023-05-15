@@ -34,14 +34,14 @@ void 		delete_last_node(t_list **stack_a);
 int			ft_lstsize(t_list *lst);
 int 		main(int ac, char **av);
 char		**ft_addargs(char *av[]);
-char		*ft_strjoin(char const *s1, char const *s2);
-char		**ft_split(char const *s, char c);
+char *ft_strjoin(char *s1, char *s2);
+char	**ft_split(char *s, char c);
 int 		ft_noting(t_list **stack_a, char *av[]);
 char		*ft_strdup(const char *s1);
-int			ft_strcmp(const char *s1, const char *s2);
+int			ft_strcmp( char *s1, char *s2);
 size_t		ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
-char		*ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_substr(char *s, unsigned int start, size_t len);
 int			is_not_num(char **str);
 int			ft_isdigit(int c);
 int 		ft_is_double(char **str);
@@ -63,5 +63,8 @@ int ft_error(void);
 int	ft_isdigit(int c);
 int	ft_get_min(t_list **stack_a);
 void get_index(t_list *stack_a);
-
+void helper(int instruction,int position, t_list **stack_b);
+void	ft_free(char **s);
+int	ft_get_min(t_list **stack_a);
+void reset_all(t_list **stack_a);
 #endif

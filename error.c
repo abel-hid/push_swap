@@ -15,8 +15,7 @@
 int ft_error(void)
 {
 	write(1, "Error\n",6);
-	exit(1);
-	return(0);
+		exit(1);
 }
 
 int ft_is_overflow(char **str)
@@ -75,6 +74,16 @@ int ft_is_double(char **str)
 	return 0;
 }
 
+void	ft_free(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		free(s[i++]);
+	free(s);
+}
+
 int ft_noting(t_list **stack_a, char *av[])
 {
 	int i = 0;
@@ -92,5 +101,7 @@ int ft_noting(t_list **stack_a, char *av[])
 		ft_lstadd_back(stack_a,ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
+	
+	ft_free(av);
 	return (0);
 }

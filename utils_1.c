@@ -56,7 +56,7 @@ long long ft_atoi(const char *str)
 	return ((result * n));
 }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char *s1, char *s2)
 {
 	int len;
 	int i;
@@ -73,11 +73,13 @@ char *ft_strjoin(char const *s1, char const *s2)
 		p[i++] = *s1++;
 	while (*s2)
 		p[i++] = *s2++;
+
 	p[i] = '\0';
 	return (p);
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+
+char *ft_substr(char *s, unsigned int start, size_t len)
 {
 	size_t i;
 	unsigned int l_len;

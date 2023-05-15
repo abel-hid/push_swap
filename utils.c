@@ -30,6 +30,7 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	p[i] = '\0';
+
 	return (p);
 }
 
@@ -75,7 +76,7 @@ static void	ft_free(char **s)
 	free(s);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	char	**p;
