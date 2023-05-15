@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
@@ -22,45 +22,39 @@ size_t ft_strlen(const char *s)
 	return (i);
 }
 
-long long ft_atoi(const char *str)
+long long	ft_atoi(char *str)
 {
-	int i;
-	int n;
-	long long result;
+	int			i;
+	int			n;
+	long long	result;
 
 	i = 0;
 	n = 1;
 	result = 0;
-	if (!str)
-		return (2147483648);
-
 	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			n = -1;
-		if((str[i] == '-' && str[i + 1] == '-') || (str[i] == '+' && str[i + 1] == '+'))
-			ft_error();
 		i++;
 	}
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + str[i] - 48;
-		if ((result > 2147483647 && n == 1 ) || (result > 2147483648 && n == -1))
-		{
+		if ((result > 2147483647 && n == 1)
+			|| (result > 2147483648 && n == -1))
 			return (2147483648);
-		}
 		i++;
 	}
 	return ((result * n));
 }
 
-char *ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int len;
-	int i;
-	char *p;
+	int		len;
+	int		i;
+	char	*p;
 
 	i = 0;
 	if (!s1 || !s2)
@@ -73,17 +67,15 @@ char *ft_strjoin(char *s1, char *s2)
 		p[i++] = *s1++;
 	while (*s2)
 		p[i++] = *s2++;
-
 	p[i] = '\0';
 	return (p);
 }
 
-
-char *ft_substr(char *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	size_t i;
-	unsigned int l_len;
-	char *p;
+	size_t			i;
+	unsigned int	l_len;
+	char			*p;
 
 	if (!s)
 		return (NULL);
@@ -106,7 +98,7 @@ char *ft_substr(char *s, unsigned int start, size_t len)
 	return (p);
 }
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

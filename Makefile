@@ -14,6 +14,7 @@ NAME = push_swap
 
 SRCS = list.c\
 		action.c\
+		action2.c\
 		utils.c\
 		utils_1.c\
 		error.c\

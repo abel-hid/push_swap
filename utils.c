@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 char	*ft_strdup(const char *s1)
 {
 	int		i;
@@ -30,7 +29,6 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	p[i] = '\0';
-
 	return (p);
 }
 
@@ -66,14 +64,14 @@ static int	size_word(char const *s, char c, int i)
 	return (j);
 }
 
-static void	ft_free(char **s)
+void	ft_free(char **s)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
-		free(s[i++]);
-	free(s);
+		free (s[i++]);
+	free (s);
 }
 
 char	**ft_split(char *s, char c)
@@ -104,8 +102,3 @@ char	**ft_split(char *s, char c)
 	p[j] = NULL;
 	return (p);
 }
-
-
-
-
-

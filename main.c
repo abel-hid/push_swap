@@ -58,15 +58,12 @@ int main(int ac, char **av)
 			sort_all_num(&stack_a,&stack_b);
 		}
 	}
-		printf("%p\n",stack_a);
 		printf("-------------a---------\n");
 		while(stack_a)
 		{
 			printf(" %d\n", stack_a->content);
 			stack_a = stack_a->next;
-			// freelist(&stack_a);
 		}
-		exit(1);
 			freelist(&stack_a);
 
 }

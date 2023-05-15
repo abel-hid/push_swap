@@ -12,33 +12,31 @@
 
 #include "push_swap.h"
 
-char **ft_addargs(char *av[])
+char	**ft_addargs(char *av[])
 {
-	char *str;
-	char **p;
-	char *tmp;
-	int i;
+	char	*str;
+	char	**p;
+	char	*tmp;
+	int		i;
 
 	i = 1;
 	str = ft_strdup("");
-
-    while (av[i])
-    {
-		if(!ft_strcmp(av[i], ""))
+	while (av[i])
+	{
+		if (!ft_strcmp(av[i], ""))
 			ft_error();
-		if(!ft_strcmp(av[i], "-") || !ft_strcmp(av[i], "+"))
-            ft_error();
+		if (!ft_strcmp(av[i], "-") || !ft_strcmp(av[i], "+"))
+			ft_error();
 		tmp = ft_strjoin(str, " ");
 		free(str);
 		str = ft_strjoin(tmp, av[i]);
 		free(tmp);
-	    i++;
+		i++;
 	}
 	p = ft_split(str, ' ');
 	free(str);
-	return(p);
+	return (p);
 }
-
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -53,7 +51,5 @@ int	ft_strcmp(char *s1, char *s2)
 			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	free(s1);
 	return (0);
 }
-

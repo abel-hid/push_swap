@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_2num.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/15 05:44:21 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/05/15 05:44:24 by abel-hid         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void ft_sort_2num(t_list **stack_a)
+void	ft_sort_2num(t_list **stack_a)
 {
-	if((*stack_a)->content > (*stack_a)->next->content)
+	if ((*stack_a)->content > (*stack_a)->next->content)
 		sa(stack_a);
 }
