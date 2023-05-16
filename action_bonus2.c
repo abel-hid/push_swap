@@ -6,12 +6,11 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 03:14:24 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 03:15:36 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:20:36 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
-
 
 void	rb(t_list **stack_b)
 {

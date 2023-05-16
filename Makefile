@@ -6,7 +6,7 @@
 #    By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 01:48:07 by abel-hid          #+#    #+#              #
-#    Updated: 2023/05/16 03:28:28 by abel-hid         ###   ########.fr        #
+#    Updated: 2023/05/16 07:52:15 by abel-hid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,16 +52,16 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 bonus: $(CHECKER)
-$(CHECKER) : $(BONUS_SRC)
-	$(CC) $(CFLAGS) $(BONUS_SRC) -o $(CHECKER)
+$(CHECKER) : $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(CHECKER)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(CHECKER)
 
-re: fclean $(NAME)
+re: fclean $(NAME) $(CHECKER)
 

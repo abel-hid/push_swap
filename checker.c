@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 03:18:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 06:35:46 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:31:14 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void function(char *read,t_list **stack_a,t_list **stack_b)
 {
 	if(!(ft_strcmp(read,"sa\n")))
 		sa(stack_a);
-	 else if((!ft_strcmp(read,"sb\n")))
+	 else if(!(ft_strcmp(read,"sb\n")))
 		sb(stack_b);
 	 else if(!(ft_strcmp(read,"ss\n")))
 		ss(stack_a,stack_b);
 	 else if(!(ft_strcmp(read,"ra\n")))
 		ra(stack_a);
-	 else if(ft_strcmp(read,"rb\n"))
+	 else if(!(ft_strcmp(read,"rb\n")))
 		rb(stack_b);
-	else if(ft_strcmp(read,"rr\n"))
+	else if(!(ft_strcmp(read,"rr\n")))
 		rr(stack_a,stack_b);
 	else if(!(ft_strcmp(read,"rra\n")))
 		rra(stack_a);
@@ -48,12 +48,15 @@ void function(char *read,t_list **stack_a,t_list **stack_b)
 		rrb(stack_b);
 	else if(!(ft_strcmp(read,"rrr\n")))
 		rrr(stack_a,stack_b);
-	else if((!ft_strcmp(read,"pb\n")))
+	else if(!(ft_strcmp(read,"pb\n")))
 		pb(stack_a,stack_b);
-	 else if(!(ft_strcmp(read,"pa\n")))
+	else if(!(ft_strcmp(read,"pa\n")))
 		pa(stack_a,stack_b);
-		else
-			write(1,"zb",1);
+	else
+	{
+		write(1,"Error\n",6);
+		exit(1);
+	}
 
 
 }
@@ -83,6 +86,11 @@ int main(int ac, char *av[])
 		else
 			write(1,"KO\n",3);
 
+	}
+	while(stack_a)
+	{
+		printf("%d\n",stack_a->content);
+		stack_a = stack_a->next;
 	}
 	return 0;
 }
