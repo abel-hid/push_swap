@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action2.c                                          :+:      :+:    :+:   */
+/*   action_bonus2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 01:47:09 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:53:34 by abel-hid         ###   ########.fr       */
+/*   Created: 2023/05/16 03:14:24 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/05/16 03:15:36 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
+
 
 void	rb(t_list **stack_b)
 {
@@ -23,7 +24,6 @@ void	rb(t_list **stack_b)
 		tmp->next = NULL;
 		ft_lstadd_back(stack_b, tmp);
 	}
-	write(1, "rb\n", 3);
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
@@ -37,7 +37,6 @@ void	pb(t_list **stack_a, t_list **stack_b)
 		tmp->next = (*stack_b);
 		(*stack_b) = tmp;
 	}
-	write(1, "pb\n", 3);
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)
@@ -51,5 +50,4 @@ void	pa(t_list **stack_a, t_list **stack_b)
 		tmp->next = (*stack_a);
 		(*stack_a) = tmp;
 	}
-	write(1, "pa\n", 3);
 }

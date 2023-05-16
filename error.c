@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 21:25:22 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/01/25 21:25:25 by abel-hid         ###   ########.fr       */
+/*   Created: 2023/05/16 01:47:15 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/05/16 02:23:22 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int	ft_is_double(char **str)
 	int	j;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		j = i + 1;
-		while (str[j] != '\0')
+		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (1);
@@ -74,7 +74,7 @@ int	ft_is_double(char **str)
 	return (0);
 }
 
-int	ft_noting(t_list **stack_a, char *av[])
+int	ft_create(t_list **stack_a, char *av[])
 {
 	int	i;
 
@@ -86,7 +86,7 @@ int	ft_noting(t_list **stack_a, char *av[])
 		return (ft_error());
 	if (ft_is_overflow(av))
 		return (ft_error());
-	while (av[i] != '\0' )
+	while (av[i])
 	{
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i])));
 		i++;

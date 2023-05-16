@@ -1,0 +1,20 @@
+{
+	"files.associations": {
+		"__config": "c",
+		"__debug": "c",
+		"__functional_03": "c",
+		"__hash_table": "c",
+		"algorithm": "c",
+		"exception": "c",
+		"functional": "c",
+		"memory": "c",
+		"optional": "c",
+		"string": "c",
+		"tuple": "c",
+		"type_traits": "c",
+		"complex": "c",
+		"ios": "c",
+		"istream": "c",
+		"ostream": "c"
+	}
+}

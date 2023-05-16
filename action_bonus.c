@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   action.c                                           :+:      :+:    :+:   */
+/*   action_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 01:46:40 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:21:57 by abel-hid         ###   ########.fr       */
+/*   Created: 2023/05/16 03:10:43 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/05/16 03:12:28 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 void	sa(t_list **stack_a)
 {
@@ -23,7 +23,6 @@ void	sa(t_list **stack_a)
 		tmp->next = *stack_a;
 		*stack_a = tmp;
 	}
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_list **stack_b)
@@ -37,7 +36,6 @@ void	sb(t_list **stack_b)
 		tmp->next = *stack_b;
 		*stack_b = tmp;
 	}
-	write(1, "sb\n", 3);
 }
 
 void	rra(t_list **stack_a)
@@ -58,7 +56,6 @@ void	rra(t_list **stack_a)
 		tmp->next = *stack_a;
 		(*stack_a) = tmp;
 	}
-	write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **stack_b)
@@ -79,7 +76,6 @@ void	rrb(t_list **stack_b)
 		tmp->next = *stack_b;
 		(*stack_b) = tmp;
 	}
-	write(1, "rrb\n", 4);
 }
 
 void	ra(t_list **stack_a)
@@ -93,5 +89,4 @@ void	ra(t_list **stack_a)
 		tmp->next = NULL;
 		ft_lstadd_back(stack_a, tmp);
 	}
-	write(1, "ra\n", 3);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abel-hid <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 21:26:06 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/01/25 21:26:10 by abel-hid         ###   ########.fr       */
+/*   Created: 2023/05/16 01:48:16 by abel-hid          #+#    #+#             */
+/*   Updated: 2023/05/16 02:46:51 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			main(int ac, char **av);
 char		**ft_addargs(char *av[]);
 char		*ft_strjoin(char *s1, char *s2);
 char		**ft_split(char *s, char c);
-int			ft_noting(t_list **stack_a, char *av[]);
+int			ft_create(t_list **stack_a, char *av[]);
 char		*ft_strdup(const char *s1);
 int			ft_strcmp( char *s1, char *s2);
 size_t		ft_strlen(const char *s);
@@ -66,4 +66,11 @@ void		helper(int instruction, int position, t_list **stack_b);
 void		ft_free(char **s);
 int			ft_get_min(t_list **stack_a);
 void		reset_all(t_list **stack_a);
+void		index_all(t_list **stack_a, t_list **stack_b);
+void		get_index(t_list *stack_a);
+int			ft_get_min(t_list **stack_a);
+void		sb(t_list **stack_b);
+void		rrr(t_list **stack_a, t_list **stack_b);
+void		rr(t_list **stack_a, t_list **stack_b);
+void		ss(t_list **stack_a, t_list **stack_b);
 #endif
