@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:48:16 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:46:51 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:35:04 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void		sb(t_list **stack_b);
 void		rrr(t_list **stack_a, t_list **stack_b);
 void		rr(t_list **stack_a, t_list **stack_b);
 void		ss(t_list **stack_a, t_list **stack_b);
+int			ft_is_sorted(t_list **stack_a);
 #endif

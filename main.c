@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:47:58 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:30:13 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/16 08:51:50 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	freelist(t_list **a)
 	}
 	*a = NULL;
 }
-
-// void leaks()
-// {
-// 	system("leaks push_swap");
-// }
 
 int	main(int ac, char **av)
 {
@@ -48,17 +43,11 @@ int	main(int ac, char **av)
 			ft_sort_4num(&stack_a, &stack_b);
 		if (ft_lstsize(stack_a) == 5)
 			ft_sort_5num(&stack_a, &stack_b);
-		if (ft_lstsize(stack_a) > 5)
+		if (ft_lstsize(stack_a) > 5 && !ft_is_sorted(&stack_a))
 		{
 			get_index(stack_a);
 			sort_all_num(&stack_a, &stack_b);
 		}
-	}
-	printf("----------a-----------\n");
-	while(stack_a)
-	{
-		printf("%d\n",stack_a->content);
-		stack_a = stack_a->next;
 	}
 	freelist(&stack_a);
 	return (0);
