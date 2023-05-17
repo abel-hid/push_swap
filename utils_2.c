@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:48:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:21:22 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:15:08 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,31 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	}
 	return (0);
+}
+
+char	*my_strjoin(char *s1, char *s2)
+{
+	int			i;
+	int			j;
+	char		*p;
+
+	i = 0;
+	p = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!p)
+		return (NULL);
+	while (s1[i])
+	{
+		p[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j])
+	{
+		p[i++] = s2[j];
+		j++;
+	}
+	p[i] = '\0';
+	free(s1);
+	s1 = NULL;
+	return (p);
 }

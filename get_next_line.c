@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 02:56:12 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 03:26:17 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:14:16 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*get_next_line(int fd)
 		buff[reader] = '\0';
 		if ((!str[0] && !reader))
 			break ;
-		str = ft_strjoin(str, buff);
+		str = my_strjoin(str, buff);
 		new_line = ft_check_new_line(str);
 		if (new_line != 1)
 			return (free(buff), ft_get_line(&str, &line, new_line));

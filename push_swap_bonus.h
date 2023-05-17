@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 02:57:48 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 08:51:21 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:17:32 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ char		*get_rest(char **str, int new_line);
 int			ft_check_new_line(char *str);
 char		*get_next_line(int fd);
 void		ft_lstadd_back(t_list **lst, t_list *new);
-
+char		*my_strjoin(char *s1, char *s2);
 #endif

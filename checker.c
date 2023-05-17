@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 03:18:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 08:52:55 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 12:13:34 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,23 @@ int	main(int ac, char *av[])
 
 	stack_a = NULL;
 	stack_b = NULL;
-	ft_create(&stack_a, av);
 	if (ac != 1)
 	{
+		ft_create(&stack_a, av);
 		while (1)
 		{
 			read = get_next_line(0);
-			if (read == NULL)
+			if (!read)
 				break ;
 			function(read, &stack_a, &stack_b);
+			free(read);
 		}
 		if (!stack_b && (ft_is_sorted(stack_a)))
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
+		freelist(&stack_a);
+		freelist(&stack_b);
 	}
-	freelist(&stack_a);
 	return (0);
 }
