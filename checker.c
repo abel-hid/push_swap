@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 03:18:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/17 12:13:34 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:00:41 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,10 @@ void	function(char *read, t_list **stack_a, t_list **stack_b)
 	else
 		error();
 }
+void f()
+{
+	system("leaks checker");
+}
 
 int	main(int ac, char *av[])
 {
@@ -81,6 +85,7 @@ int	main(int ac, char *av[])
 	t_list	*stack_b;
 	char	*read;
 
+	atexit(f);
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac != 1)

@@ -6,7 +6,7 @@
 #    By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/16 01:48:07 by abel-hid          #+#    #+#              #
-#    Updated: 2023/05/16 07:52:15 by abel-hid         ###   ########.fr        #
+#    Updated: 2023/05/17 13:38:21 by abel-hid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ bonus: $(CHECKER)
 $(CHECKER) : $(BONUS_OBJ)
 	$(CC) $(CFLAGS) $(BONUS_OBJ) -o $(CHECKER)
 
-%.o: %.c
+%.o: %.c push_swap.h push_swap_bonus.h
 	$(CC) $(CFLAGS) -c $<
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJ)

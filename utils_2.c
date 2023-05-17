@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:48:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/17 12:15:08 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:37:01 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	**ft_addargs(char *av[])
 	str = ft_strdup("");
 	while (av[i])
 	{
-		if (!ft_strcmp(av[i], ""))
+		if (!ft_strcmp(av[i], "") || !ft_strcmp(av[i], " "))
 			ft_error();
 		if (!ft_strcmp(av[i], "-") || !ft_strcmp(av[i], "+"))
 			ft_error();

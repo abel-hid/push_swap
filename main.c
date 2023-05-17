@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:47:58 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 08:51:50 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:55:35 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ int	main(int ac, char **av)
 			get_index(stack_a);
 			sort_all_num(&stack_a, &stack_b);
 		}
+	}
+	printf("----------a---------\n");
+	while(stack_a)
+	{
+		printf("%d\n",stack_a->content);
+		stack_a = stack_a->next;
 	}
 	freelist(&stack_a);
 	return (0);

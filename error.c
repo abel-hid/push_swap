@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:47:15 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/16 02:23:22 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/17 18:31:21 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int	is_not_num(char **str)
 	while (str[i])
 	{
 		j = 0;
-		if (str[i][j] == '-' || str[i][j] == '+')
+		if (str[i][j] == '-' || str[i][j] == '+' )
 			j++;
+			if(!ft_strcmp(str[i], "+") || !ft_strcmp(str[i], "-"))
+				return (1);
 		while (str[i][j])
 		{
 			if (!(ft_isdigit(str[i][j])))
@@ -53,6 +55,7 @@ int	is_not_num(char **str)
 	}
 	return (0);
 }
+
 
 int	ft_is_double(char **str)
 {
@@ -80,6 +83,7 @@ int	ft_create(t_list **stack_a, char *av[])
 
 	i = 0;
 	av = ft_addargs(av);
+
 	if (is_not_num(av))
 		return (ft_error());
 	if (ft_is_double(av))
