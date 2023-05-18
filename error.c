@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:47:15 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/18 21:45:44 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/18 22:10:27 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ int	ft_is_overflow(char **str)
 	}
 	return (0);
 }
-int ft_space(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v' || c == '\f')
-		return (1);
-	return (0);
-
-}
-
 
 int	is_not_num(char **str)
 {
@@ -53,15 +45,14 @@ int	is_not_num(char **str)
 			j++;
 		while (str[i][j])
 		{
-				if (!(ft_isdigit(str[i][j])))
-					return (1);
+			if (!(ft_isdigit(str[i][j])))
+				return (1);
 			j++;
 		}
 		i++;
 	}
 	return (0);
 }
-
 
 int	ft_is_double(char **str)
 {
@@ -89,7 +80,6 @@ int	ft_create(t_list **stack_a, char *av[])
 
 	i = 0;
 	av = ft_addargs(av);
-
 	if (is_not_num(av))
 		return (ft_error());
 	if (ft_is_double(av))
@@ -98,7 +88,6 @@ int	ft_create(t_list **stack_a, char *av[])
 		return (ft_error());
 	while (av[i])
 	{
-		printf("%s\n",av[i]);
 		ft_lstadd_back(stack_a, ft_lstnew(ft_atoi(av[i])));
 		i++;
 	}
