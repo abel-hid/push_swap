@@ -6,7 +6,7 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:48:16 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/17 13:38:48 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:26:40 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,7 @@ void		rrr(t_list **stack_a, t_list **stack_b);
 void		rr(t_list **stack_a, t_list **stack_b);
 void		ss(t_list **stack_a, t_list **stack_b);
 int			ft_is_sorted(t_list **stack_a);
+int			position(t_list *stack_b, int index);
+int			get_num_action(t_list *stack_b, int pos);
+int			get_pos_min(t_list *stack);
 #endif

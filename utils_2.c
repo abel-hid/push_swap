@@ -6,12 +6,31 @@
 /*   By: abel-hid <abel-hid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 01:48:35 by abel-hid          #+#    #+#             */
-/*   Updated: 2023/05/17 17:37:01 by abel-hid         ###   ########.fr       */
+/*   Updated: 2023/05/18 21:44:54 by abel-hid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int is_space(char *str)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+
+	while (str[i])
+	{
+		if(str[i] == ' ')
+			j++;
+		i++;
+	}
+	if((int)ft_strlen(str) == j)
+		ft_error();
+	return(0);
+
+}
 char	**ft_addargs(char *av[])
 {
 	char	*str;
@@ -23,13 +42,14 @@ char	**ft_addargs(char *av[])
 	str = ft_strdup("");
 	while (av[i])
 	{
-		if (!ft_strcmp(av[i], "") || !ft_strcmp(av[i], " "))
+		if (!ft_strcmp(av[i], "") || is_space(av[i]))
 			ft_error();
 		if (!ft_strcmp(av[i], "-") || !ft_strcmp(av[i], "+"))
 			ft_error();
 		tmp = ft_strjoin(str, " ");
 		free(str);
 		str = ft_strjoin(tmp, av[i]);
+
 		free(tmp);
 		i++;
 	}
